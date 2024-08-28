@@ -1,0 +1,22 @@
+<div class="game-filter">
+  <mat-form-field appearance="fill">
+    <mat-label>Search by Name</mat-label>
+    <input matInput  placeholder="Enter game name">
+  </mat-form-field>
+
+
+</div>
+
+<mat-grid-list [cols]="gridCols" gutterSize="16px" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let game of games$ | async">
+    <a [routerLink]="['/games', game.id]" style="text-decoration: none;">
+      <mat-card>
+        <img mat-card-image [src]="game.thumbnail" alt="{{game.title}}">
+        <mat-card-title>{{ game.title }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ game.short_description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>

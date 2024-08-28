@@ -1,0 +1,20 @@
+<mat-card *ngIf="game">
+
+  <button mat-button (click)="goBack()" style="margin-bottom: 20px;">
+    <mat-icon>arrow_back</mat-icon>
+    Back to Games
+  </button>
+
+  <img mat-card-image [src]="game.thumbnail" alt="{{game.title}}">
+  <mat-card-title>{{ game.title }}</mat-card-title>
+  <mat-card-content>
+    <p>{{ game.short_description }}</p>
+    <p><strong>Genre:</strong> {{ game.genre }}</p>
+    <p><strong>Platform:</strong> {{ game.platform }}</p>
+    <p><strong>Developer:</strong> {{ game.developer }}</p>
+    <p><strong>Publisher:</strong> {{ game.publisher }}</p>
+    <p><strong>Release Date:</strong> {{ game.release_date }}</p>
+    <a [href]="game.freetogame_profile_url" target="_blank">More Info</a>
+
+  </mat-card-content>
+</mat-card>
